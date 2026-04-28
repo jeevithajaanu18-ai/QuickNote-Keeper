@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QuickNote Keeper — A sleek, fast note-taking app. Create, manage, and auto-save notes right in your browser." />
+  <title>QuickNote Keeper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+
+  <!-- Header -->
+  <header id="app-header">
+    <div class="header-left">
+      <span class="logo-icon">📝</span>
+      <h1>QuickNote <span class="accent">Keeper</span></h1>
+    </div>
+    <div class="header-right">
+      <span id="note-count-badge" class="badge">0 notes</span>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="app-main">
+
+    <!-- Note creation card -->
+    <section id="note-creator" class="glass-card">
+      <h2>New Note</h2>
+      <div class="input-group">
+        <label for="note-title-input">Title</label>
+        <input
+          type="text"
+          id="note-title-input"
+          placeholder="Give your note a title…"
+          maxlength="80"
+          autocomplete="off"
+        />
+      </div>
+      <div class="input-group">
+        <label for="note-body-input">Content</label>
+        <textarea
+          id="note-body-input"
+          placeholder="Write something wonderful…"
+          rows="5"
+        ></textarea>
+      </div>
+      <div class="creator-footer">
+        <span id="char-count" class="char-count">0 characters</span>
+        <button id="add-note-btn" class="btn-primary" disabled>
+          <span class="btn-icon">＋</span> Add Note
+        </button>
+      </div>
+    </section>
+
+    <!-- Search & filter bar -->
+    <section id="toolbar" class="glass-card toolbar">
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search notes…"
+          autocomplete="off"
+        />
+      </div>
+      <button id="clear-all-btn" class="btn-danger" title="Delete all notes">
+        🗑️ Clear All
+      </button>
+    </section>
+
+    <!-- Notes grid -->
+    <section id="notes-container">
+      <!-- Notes are injected here by JS -->
+    </section>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">📋</div>
+      <h3>No notes yet</h3>
+      <p>Create your first note above to get started!</p>
+    </div>
+
+  </main>
+
+  <!-- Confirmation modal -->
+  <div id="confirm-modal" class="modal-overlay hidden">
+    <div class="modal glass-card">
+      <h3 id="modal-title">Are you sure?</h3>
+      <p id="modal-message">This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button id="modal-cancel-btn" class="btn-secondary">Cancel</button>
+        <button id="modal-confirm-btn" class="btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <footer id="app-footer">
+    <p>QuickNote Keeper &copy; 2026 &mdash; Notes are saved in your browser's Local Storage.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

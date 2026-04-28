@@ -1,0 +1,13 @@
+{
+  "name": "quicknote-keeper",
+  "version": "1.0.0",
+  "description": "A sleek, fast note-taking app with auto-save to Local Storage.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y live-server --port=3000 --no-browser",
+    "start": "npx -y live-server --port=3000"
+  },
+  "keywords": ["notes", "keeper", "local-storage"],
+  "author": "",
+  "license": "ISC"
+}
